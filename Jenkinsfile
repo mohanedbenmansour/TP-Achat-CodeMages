@@ -13,7 +13,7 @@ pipeline {
         stage("Fetching Code From Repository") {
             steps {
                 script {
-                    git branch: 'master', url: 'https://github.com/omarelloumi/testdevops.git';
+                    git branch: 'OmarBackend', url: 'https://github.com/mohanedbenmansour/TP-Achat-CodeMages.git';
                 }
             }
         }
