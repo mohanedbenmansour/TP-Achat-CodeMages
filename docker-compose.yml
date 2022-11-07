@@ -8,10 +8,10 @@ services:
     ports:
      - 3306:3306
     environment:
-     - MYSQL_ROOT_PASSWORD=mohaned
+     - MYSQL_ROOT_PASSWORD=root
      - MYSQL_DATABASE=achatdb
-     - MYSQL_USER=mohaned
-     - MYSQL_PASSWORD=mohaned
+     - MYSQL_USER=root
+     - MYSQL_PASSWORD=root
     volumes:
      - /home/mysql/data:/var/lib/mysql
 
