@@ -32,12 +32,12 @@ pipeline {
             }
         }
 
-        stage("Runing Tests with Mockito and Jacoco") {
-               steps{
-                    sh 'mvn test'
-                    jacoco()
-                }
-        }
+        //stage("Runing Tests with Mockito and Jacoco") {
+              // steps{
+               //     sh 'mvn test'
+               //     jacoco()
+               // }
+     //   }
 
         stage("Quality Check with SonarQube") {
             steps{
@@ -81,7 +81,29 @@ pipeline {
             }
         }
         
-    
+     stage("Building Docker Image") {
+                steps{
+                    sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/achat .'
+                }
+        }
+        
+        stage("Login to DockerHub") {
+                steps{
+                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                }
+        }
+        
+        stage("Push to DockerHub") {
+                steps{
+                    sh 'docker push $DOCKERHUB_CREDENTIALS_USR/achat'
+                }
+        }
+        
+        stage("Docker-compose") {
+                steps{
+                    sh 'docker-compose up -d'
+                }
+        }
         
     }
 }
