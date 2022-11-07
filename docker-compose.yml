@@ -15,4 +15,13 @@ services:
     volumes:
      - /home/mysql/data:/var/lib/mysql
 
-
+  spring_app:
+    image: mohanedbenmansour/achat
+    container_name: achatspring
+    restart: on-failure
+    environment:
+     - spring.datasource.url=jdbc:mysql://mysqldb:3306/achatdb?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    ports:
+     - 8089:8089
+    depends_on:
+     - mysqldb
