@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        PATH = "$PATH:/usr/share/maven"
+        PATH = "$PATH:/usr/share/maven/bin"
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "192.168.1.200:8081"
