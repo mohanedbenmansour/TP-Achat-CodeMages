@@ -1,7 +1,10 @@
 pipeline {
     agent any
+    tools {
+        maven 'M2_HOME' 
+    }
     environment {
-        PATH = "$PATH:/usr/share/maven"
+       
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "192.168.1.200:8081"
@@ -14,7 +17,7 @@ pipeline {
             steps {
                 script {
                     git branch: 'backendMohaned', url: 'https://github.com/mohanedbenmansour/TP-Achat-CodeMages.git';
-                    sh:"ls "
+                    sh "ls"
                 }
             }
         }
@@ -23,7 +26,6 @@ pipeline {
        stage('Building Project'){
             steps{
                 script{
-                    
                         sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -DskipTests'
                         
                 }
