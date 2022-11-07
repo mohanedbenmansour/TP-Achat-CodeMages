@@ -78,7 +78,7 @@ public void DeleteStockTest() {
 	System.out.println("Delete works !");
 	
 }
-
+ 
 
 @Test 
 public void UpdateStockTest() {
