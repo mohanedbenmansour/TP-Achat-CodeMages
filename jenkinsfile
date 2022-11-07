@@ -13,7 +13,7 @@ pipeline {
         stage("Fetching Code From Repository") {
             steps {
                 script {
-                    git branch: 'backmohaned', url: 'https://github.com/mohanedbenmansour/TP-Achat-CodeMages.git';
+                    git branch: 'backendMohaned', url: 'https://github.com/mohanedbenmansour/TP-Achat-CodeMages.git';
                 }
             }
         }
