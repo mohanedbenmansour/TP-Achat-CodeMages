@@ -5,7 +5,8 @@ pipeline {
         { 
         steps{ 
             echo 'Pulling...'   
-              git branch: 'mourad', url: 'https://github.com/mohanedbenmansour/TP-Achat-CodeMages.git'
+              git branch: 'mourad', url: 'https://github.com/mohanedbenmansour/TP-Achat-CodeMages.git';
+                 sh "ls"
           }
         }
         stage ('Nexus') {
