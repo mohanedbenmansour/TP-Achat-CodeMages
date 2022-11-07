@@ -14,6 +14,7 @@ pipeline {
             steps {
                 script {
                     git branch: 'backendMohaned', url: 'https://github.com/mohanedbenmansour/TP-Achat-CodeMages.git';
+                    sh "ls"
                 }
             }
         }
