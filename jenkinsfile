@@ -5,7 +5,7 @@ pipeline {
         { 
         steps{ 
             echo 'Pulling...'   
-              git branch: 'mourad', credentialsId: 'mourad', url: 'https://github.com/MouradBENRAHAL/Devops.git'
+              git branch: 'mourad', credentialsId: 'mourad', url: 'https://github.com/mohanedbenmansour/TP-Achat-CodeMages.git'
           }
         }
         stage ('Nexus') {
