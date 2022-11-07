@@ -9,7 +9,7 @@ pipeline {
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "192.168.1.200:8081"
         NEXUS_REPOSITORY = "jenkins-repo"
-        NEXUS_CREDENTIAL_ID = "nexusID"
+        NEXUS_CREDENTIAL_ID = "deploymentRepo"
       
     }
     stages {
