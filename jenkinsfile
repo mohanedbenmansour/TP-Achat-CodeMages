@@ -41,7 +41,7 @@ pipeline {
 
         stage("Quality Check with SonarQube") {
             steps{
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=181JMT1247 -DskipTests'
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=0000 -DskipTests'
             }
         }
         
