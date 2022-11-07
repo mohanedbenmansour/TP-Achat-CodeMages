@@ -3,7 +3,7 @@ version: "3"
 services:
 
   mysqldb:
-    container_name: mysqldbe
+    container_name: mysqldb
     image: mysql/mysql-server:8.0
     restart: unless-stopped
     ports:
@@ -15,7 +15,7 @@ services:
      - MYSQL_PASSWORD=root
     volumes:
      - /home/mysql/data:/var/lib/mysql
-     
+
   spring_app:
     image: sokalee/achat
     container_name: achatspring
