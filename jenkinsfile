@@ -9,11 +9,7 @@ pipeline {
                  sh "ls"
           }
         }
-        stage ('Nexus') {
-            steps {
-                sh 'mvn deploy -DskipTests'
-      }
-    } 
+
      stage('Creation livrable'){ 
              steps{ 
                  sh "mvn clean package"
