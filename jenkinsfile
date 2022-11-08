@@ -5,11 +5,14 @@ pipeline {
         { 
         steps{ 
             echo 'Pulling...'   
-              git branch: 'mourad', url: 'https://github.com/mohanedbenmansour/TP-Achat-CodeMages.git';
-                 sh "ls"
+              git branch: 'mourad', url: 'https://github.com/mohanedbenmansour/TP-Achat-CodeMages.git'
           }
         }
-
+          stage ('Nexus') {
+            steps {
+                sh 'mvn deploy -DskipTests'
+      }
+    }   
      stage('Creation livrable'){ 
              steps{ 
                  sh "mvn clean package"
