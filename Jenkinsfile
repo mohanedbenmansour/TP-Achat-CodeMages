@@ -1,11 +1,12 @@
 pipeline {
-  agent none
-stages{
+        agent any
+
+    stages{
 
 
-stage("Fetching Code From Repository") {
-            steps {
-                script {
+            stage("Fetching Code From Repository") {
+                 steps {
+                        script {
                     git branch: 'frontMohaned', url: 'https://github.com/mohanedbenmansour/TP-Achat-CodeMages.git';
                     sh "ls"
                 }
