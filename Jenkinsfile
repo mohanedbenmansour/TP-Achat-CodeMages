@@ -15,7 +15,7 @@ pipeline {
 
 stage('Fetch dependencies') {
   agent {
-    docker 'circleci/node:9.3-stretch-browsers'
+    docker 'circleci/node:8'
   }
   steps {
     sh 'yarn'
@@ -25,7 +25,7 @@ stage('Fetch dependencies') {
 
 stage('Lint') {
   agent {
-    docker 'circleci/node:9.3-stretch-browsers'
+    docker 'circleci/node:8'
   }
   steps {
     unstash 'node_modules'
@@ -35,7 +35,7 @@ stage('Lint') {
 
 stage('Compile') {
   agent {
-    docker 'circleci/node:9.3-stretch-browsers'
+    docker 'circleci/node:8'
   }
   steps {
     unstash 'node_modules'
