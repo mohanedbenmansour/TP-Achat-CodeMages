@@ -1,5 +1,17 @@
 pipeline {
   agent none
+stages{
+
+
+stage("Fetching Code From Repository") {
+            steps {
+                script {
+                    git branch: 'frontMohaned', url: 'https://github.com/mohanedbenmansour/TP-Achat-CodeMages.git';
+                    sh "ls"
+                }
+            }
+        }
+
 stage('Fetch dependencies') {
   agent {
     docker 'circleci/node:9.3-stretch-browsers'
@@ -43,4 +55,4 @@ stage('Build and Push Docker Image') {
     sh 'docker push $DOCKER_PUSH_URL/frontend'
   }
 }
-}
+}}
