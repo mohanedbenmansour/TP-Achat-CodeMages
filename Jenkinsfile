@@ -1,59 +1,51 @@
 pipeline {
-        agent any
-
+    agent any
+     tools {nodejs "node"}
+      /*environment {
+         PATH='/usr/local/bin:/usr/bin:/bin'
+      }*/
     stages{
+    stage('Checkout') {
+        //disable to recycle workspace data to save time/bandwidth
+         steps{
+        deleteDir()
+        checkout scm
+         }
+        //enable for commit id in build number
+        //env.git_commit_id = sh returnStdout: true, script: 'git rev-parse HEAD'
+        //env.git_commit_id_short = env.git_commit_id.take(7)
+        //currentBuild.displayName = "#${currentBuild.number}-${env.git_commit_id_short}"
+    }
 
-
-            stage("Fetching Code From Repository") {
-                 steps {
-                        script {
-                    git branch: 'frontMohaned', url: 'https://github.com/mohanedbenmansour/TP-Achat-CodeMages.git';
-                    sh "ls"
-                }
-            }
+    stage('NPM Install') {
+        /*withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {*/
+        steps{ 
+            sh 'npm install'
+            sh 'npm install -g @angular/cli@1.0.2'
+            sh 'ng --version'
         }
+        /*}*/
+    }
 
-stage('Fetch dependencies') {
-  agent {
-    docker 'circleci/node:8'
-  }
-  steps {
-    sh 'yarn'
-    stash includes: 'node_modules/', name: 'node_modules'
-  }
-}
+    stage('Build') {
+         steps{
+        milestone(20)
+        sh 'ng build --prod'
+         }
+    }
 
-stage('Lint') {
-  agent {
-    docker 'circleci/node:8'
-  }
-  steps {
-    unstash 'node_modules'
-    sh 'yarn lint'
-  }
-}
+    stage('Archive') {
+         steps{
+        sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
+        archive 'dist.tar.gz'
+         }
+    }
 
-stage('Compile') {
-  agent {
-    docker 'circleci/node:8'
-  }
-  steps {
-    unstash 'node_modules'
-    sh 'yarn build:prod'
-    stash includes: 'dist/', name: 'dist'
-  }
+    stage('Deploy') {
+         steps{
+        milestone(20)
+        echo "Deploying..."
+         }
+    }
+    }
 }
-
-stage('Build and Push Docker Image') {
-  agent any
-  environment {
-    DOCKER_PUSH = credentials('dockerhub')
-  }
-  steps {
-    unstash 'dist'
-    sh 'docker build -t $DOCKER_PUSH_URL/frontend .'
-    sh 'docker login -u $DOCKER_PUSH_USR -p $DOCKER_PUSH_PSW $DOCKER_PUSH_URL'
-    sh 'docker push $DOCKER_PUSH_URL/frontend'
-  }
-}
-}}
