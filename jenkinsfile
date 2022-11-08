@@ -8,11 +8,7 @@ pipeline {
             git branch: 'mourad', credentialsId: 'token', url: 'https://github.com/mohanedbenmansour/TP-Achat-CodeMages.git'
           }
         }
-        /*  stage ('Nexus') {
-            steps {
-                sh 'mvn deploy -DskipTests'
-      }
-    }   
+        /*  
      stage('Creation livrable'){ 
              steps{ 
                  sh "mvn clean package"
