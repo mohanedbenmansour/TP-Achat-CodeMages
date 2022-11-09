@@ -12,10 +12,11 @@ services:
       - 3306:3306
     volumes:
       - tpachato:/var/lib/mysql
-  app:
+  spring_app:
     depends_on:
       - mysqldb
-    build: ./spring-app
+    image: badis1998/achat:latest
+    container_name: backend
     restart: on-failure
     env_file: ./.env
     ports:
