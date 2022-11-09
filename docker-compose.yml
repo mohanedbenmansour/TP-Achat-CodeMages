@@ -23,7 +23,7 @@ services:
 
   spring_app:
    image: fery99/produit1:latest
-   container_name: produit
+   container_name: produit1
    ports:
     - 8089:8089
    environment:
