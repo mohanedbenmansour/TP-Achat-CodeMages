@@ -73,7 +73,7 @@
         <repository>
             <id>deploymentRepo</id>
 			<name>Nexus Repository</name>
-                <url>http://192.168.11.13:8081/repository/maven-releases/</url>
+                <url>http://192.168.11.17:8081/repository/maven-releases/</url>
         </repository>
     </distributionManagement>
 
@@ -99,6 +99,13 @@
         </execution>
     </executions>
 </plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -118,7 +125,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.0.5</version>
+          <version>3.8.1</version>
         </plugin>
         <plugin>
           <groupId>org.sonarsource.scanner.maven</groupId>
