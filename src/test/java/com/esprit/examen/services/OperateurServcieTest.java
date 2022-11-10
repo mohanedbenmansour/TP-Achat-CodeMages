@@ -16,7 +16,6 @@ import com.esprit.examen.repositories.FactureRepository;
 import com.esprit.examen.repositories.ProduitRepository;
 import com.esprit.examen.repositories.StockRepository;
 import com.esprit.examen.services.IProduitService;
-import com.esprit.examen.entities.Operateur;
 import org.junit.runner.RunWith;
 
 import org.springframework.test.context.junit4.SpringRunner;
