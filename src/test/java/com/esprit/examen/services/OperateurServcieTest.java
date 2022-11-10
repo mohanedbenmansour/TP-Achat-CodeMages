@@ -49,8 +49,8 @@ public class OperateurServcieTest {
 	@MockBean
 	private OperateurRepository or;
 	
-	private Operateur o1 = new Operateur(1L,"fatma","daâs","546125");
-	private Operateur o2 = new Operateur(2L,"Fatma","daâs","546125");
+	private Operateur o1 = new Operateur("fatma","daâs");
+	private Operateur o2 = new Operateur("Fatma","daâs");
 	  
 	@Autowired
 	    IOperateurService os;
