@@ -53,39 +53,5 @@ public class OperateurServcieTest {
 		System.out.println("add works !");
 	}
     
-    @Test 
-    public void retrieveAllOperateursTest() {
-    	when(or.findAll()).thenReturn(Stream
-    			.of(o1,o2)
-    			.collect(Collectors.toList()));
-    	assertEquals(2,os.retrieveAllOperateurs().size());
-    	System.out.println("Retrieve operators works !");
-    }
     
-   
-    
-    @Test
-    public void DeleteOperateurTest() {
-    	or.save(o1);
-    	os.deleteOperateur(o1.getIdOperateur());
-    	verify(or, times(1)).deleteById(o1.getIdOperateur());
-    	System.out.println("Delete works !");
-    	
-    }
-
-    
-    @Test 
-    public void UpdateOperateurTest() {
-    	when(or.save(o1)).thenReturn(o1);
-    	assertNotNull(o1);
-    	assertEquals(o1, os.updateOperateur(o1));
-    	System.out.println("Update works !");
-    }
-    
-    @Test
-    public void retrieveOperateurTest() {
-    	when(or.findById(o1.getIdOperateur())).thenReturn(Optional.of(o1));
-    	assertEquals(o1, os.retrieveOperateur(o1.getIdOperateur()));
-    	System.out.println("Retrieve operator works !");
-    }
 }
