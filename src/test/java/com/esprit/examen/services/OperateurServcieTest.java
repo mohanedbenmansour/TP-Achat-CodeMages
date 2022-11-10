@@ -1,4 +1,5 @@
-package tn.esprit.rh.achat.services.operateur;
+package com.esprit.examen.services.operateur;
+
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.Test;
@@ -9,12 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import tn.esprit.rh.achat.entities.Produit;
-import tn.esprit.rh.achat.entities.Stock;
-import tn.esprit.rh.achat.repositories.FactureRepository;
-import tn.esprit.rh.achat.repositories.ProduitRepository;
-import tn.esprit.rh.achat.repositories.StockRepository;
-import tn.esprit.rh.achat.services.IProduitService;
+import com.esprit.examen.entities.Produit;
+import com.esprit.examen.entities.Stock;
+import com.esprit.examen.repositories.FactureRepository;
+import com.esprit.examen.repositories.ProduitRepository;
+import com.esprit.examen.repositories.StockRepository;
+import com.esprit.examen.services.IProduitService;
 import org.junit.runner.RunWith;
 
 import org.springframework.test.context.junit4.SpringRunner;
@@ -33,9 +34,9 @@ import java.util.stream.Stream;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.times;
 
-import tn.esprit.rh.achat.entities.Operateur;
-import tn.esprit.rh.achat.repositories.OperateurRepository;
-import tn.esprit.rh.achat.services.IOperateurService;
+import com.esprit.examen.entities.Operateur;
+import com.esprit.examen.repositories.OperateurRepository;
+import com.esprit.examen.services.IOperateurService;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.times;
 
