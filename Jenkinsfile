@@ -28,6 +28,13 @@ pipeline {
             }
         }
         
+        
+        stage("Runing Tests with Mockito and Jacoco") {
+               steps{
+                    sh 'mvn test'
+                    jacoco()
+                }
+        }
 
         stage("Quality Check with SonarQube") {
             steps{
